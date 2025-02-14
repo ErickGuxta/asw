@@ -1,0 +1,236 @@
+POO com HTML, CSS e JavaScript
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POO com HTML, CSS e JavaScript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .classe {
+            border: 2px solid #333;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .heranca {
+            border-top: 5px solid #007BFF;
+        }
+
+        .polimorfismo {
+            border-top: 5px solid #28A745;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Fundamentos da Orientação a Objetos</h1>
+
+    <div class="container">
+
+        <!-- Classe Base -->
+        <div class="classe">
+            <h2>Animal</h2>
+            <p><strong>Atributos:</strong> nome</p>
+            <p><strong>Métodos:</strong> fazerSom(), mover()</p>
+            <button onclick="mostrarSom('animal')">Fazer Som</button>
+            <button onclick="mostrarMovimento('animal')">Mover</button>
+        </div>
+        <!-- Classes Filhas (Herança) -->
+        <div class="classe heranca">
+            <h2>Cachorro</h2>
+            <select id="cachorroSelect" onchange="atualizarBotoes()">
+                <option value="cachorro1">Cachorro 1</option>
+                <option value="cachorro2">Cachorro 2</option>
+                <option value="cachorro3">Cachorro 3</option>
+                <option value="cachorro4">Cachorro 4</option>
+            </select>
+            <div id="botoesCachorro">
+                <button onclick="mostrarSom('cachorro1')">Fazer Som</button>
+                <button onclick="mostrarMovimento('cachorro1')">Mover</button>
+            </div>
+        </div>
+
+        <div class="classe heranca">
+            <h2>Gato</h2>
+            <p><strong>Herda de:</strong> Animal</p>
+            <p><strong>Métodos sobrescritos:</strong> fazerSom(), mover()</p>
+            <button onclick="mostrarSom('gato')">Fazer Som</button>
+            <button onclick="mostrarMovimento('gato')">Mover</button>
+        </div>
+
+        <div class="classe heranca polimorfismo">
+            <h2>Pássaro</h2>
+            <p><strong>Herda de:</strong> Animal</p>
+            <p><strong>Métodos sobrescritos:</strong> fazerSom(), mover()</p>
+            <button onclick="mostrarSom('passaro')">Fazer Som</button>
+            <button onclick="mostrarMovimento('passaro')">Mover</button>
+        </div>
+
+    </div>
+
+    <h2>Resultado:</h2>
+    <p id="resultado" style="font-size: 18px; font-weight: bold;"></p>
+
+    <script>
+        // Classe Base (Animal)
+        class Animal {
+            constructor(nome) {
+                this.nome = nome; // Encapsulamento (protegendo o dado dentro da classe)
+            }
+
+            fazerSom() {
+                return "Este animal faz um som!";
+            }
+
+            mover() {
+                return "O animal está se movendo!";
+            }
+        }
+
+        // Classes Filhas (Herança e Polimorfismo)
+        class Cachorro extends Animal {
+            fazerSom() {
+                return `O cachorro ${this.nome} late: Au Au!`;
+            }
+
+            mover() {
+                return `O cachorro ${this.nome} está correndo!`;
+            }
+        }
+
+        class Gato extends Animal {
+            fazerSom() {
+                return `O gato ${this.nome} mia: Miau!`;
+            }
+
+            mover() {
+                return `O gato ${this.nome} está saltando!`;
+            }
+        }
+
+        class Passaro extends Animal {
+            fazerSom() {
+                return `O pássaro ${this.nome} canta: Piu Piu!`;
+            }
+
+            mover() {
+                return `O pássaro ${this.nome} está voando!`;
+            }
+        }
+
+        // Criando instâncias
+        let animal = new Animal("Genérico");
+        let cachorro1 = new Cachorro("Rex");
+        let cachorro2 = new Cachorro("Bolinha");
+        let cachorro3 = new Cachorro("Max");
+        let cachorro4 = new Cachorro("Bella");
+        let gato = new Gato("Whiskers");
+        let passaro = new Passaro("Azulão");
+
+        // Funções para exibir os sons e movimentos
+        function mostrarSom(tipo) {
+            let resultado = document.getElementById("resultado");
+            switch (tipo) {
+                case 'cachorro1':
+                    resultado.innerText = cachorro1.fazerSom();
+                    break;
+                case 'cachorro2':
+                    resultado.innerText = cachorro2.fazerSom();
+                    break;
+                case 'cachorro3':
+                    resultado.innerText = cachorro3.fazerSom();
+                    break;
+                case 'cachorro4':
+                    resultado.innerText = cachorro4.fazerSom();
+                    break;
+                case 'gato':
+                    resultado.innerText = gato.fazerSom();
+                    break;
+                case 'passaro':
+                    resultado.innerText = passaro.fazerSom();
+                    break;
+                default:
+                    resultado.innerText = animal.fazerSom();
+                    break;
+            }
+        }
+
+        function mostrarMovimento(tipo) {
+            let resultado = document.getElementById("resultado");
+            switch (tipo) {
+                case 'cachorro1':
+                    resultado.innerText = cachorro1.mover();
+                    break;
+                case 'cachorro2':
+                    resultado.innerText = cachorro2.mover();
+                    break;
+                case 'cachorro3':
+                    resultado.innerText = cachorro3.mover();
+                    break;
+                case 'cachorro4':
+                    resultado.innerText = cachorro4.mover();
+                    break;
+                case 'gato':
+                    resultado.innerText = gato.mover();
+                    break;
+                case 'passaro':
+                    resultado.innerText = passaro.mover();
+                    break;
+                default:
+                    resultado.innerText = animal.mover();
+                    break;
+            }
+        }
+
+        function atualizarBotoes() {
+            const select = document.getElementById("cachorroSelect");
+            const tipo = select.value;
+            const botoes = document.getElementById("botoesCachorro");
+
+            // Atualiza os botões com base na seleção
+            botoes.innerHTML = `
+                <button onclick="mostrarSom('${tipo}')">Fazer Som</button>
+                <button onclick="mostrarMovimento('${tipo}')">Mover</button>
+            `;
+        }
+    </script>
+
+</body>
+
+</html>
