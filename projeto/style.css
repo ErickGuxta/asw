@@ -1,0 +1,261 @@
+@import url('https://meyerweb.com/eric/tools/css/reset/reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Galdeano&family=League+Spartan:wght@100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Oswald:wght@200..700&family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --primary-color: #1D1825;
+    --secondary-color: #15101C;
+    --danger-color: #e74C3C;
+    --right-color: #78CFB0;
+    --text-color-primary: #9E78CF;
+    --text-color-secondary: #FFFFFF;
+    --bg-color: #0D0714;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Nunito", serif;
+
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    height: 60%;
+    padding: 10px;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+}
+
+.title{
+    color: #4ade80;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 8px;
+
+}
+.content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding: 10px;
+    gap: 10px;
+}
+
+/* sidebar */
+.content .sidebar{
+    width: 30%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sidebar .container-steps{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.sidebar .step{
+    padding: 8px 16px;
+    color: #9ca3af;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+
+.step:hover{
+    background-color: #2d2d2d;
+
+}
+
+
+.sidebar .image-animal{
+    width: 80%;
+    height: 120px;
+    background-color: aliceblue;
+    border-radius: 10px;
+}
+
+
+
+
+
+/* menu principal */
+.content .main-content{
+    width: 70%;
+    height: 100%;
+    padding: 16px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color); /* Define a cor de fundo */
+
+}
+
+/* style menu principal step1 */
+.main-content .step1{
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content .form-title{
+    color: #4ade80;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+.main-content .form-subtitle{
+    color: #9ca3af;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.main-content .selectionAnimals {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid var(--text-color-primary);
+    border-radius: 5px;
+    background-color: var(--secondary-color);
+    color: var(--text-color-secondary);
+    font-size: 16px;
+    font-family: "Nunito", serif;
+
+}
+
+.main-content .button-next {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--right-color);
+    color: var(--text-color-secondary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.main-content .button-next:hover {
+    background-color: var(--danger-color);
+}
+
+
+/* style menu principal step2 */
+.main-content .step2 {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.main-content .form-customize {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
+}
+
+.main-content .form-customize label{
+    color: #9ca3af;
+    font-size: 14px;
+}
+.main-content .form-customize .color-animal{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    
+}
+
+.main-content input[type="text"],
+.main-content input[type="color"] {
+    padding: 10px;
+    border: 2px solid var(--text-color-primary);
+    border-radius: 5px;
+    font-size: 16px;
+    color: var(--text-color-secondary);
+    background-color: var(--secondary-color);
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+.main-content .button-back {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--danger-color);
+    color: var(--text-color-secondary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.main-content .button-back:hover {
+    background-color: rgb(55, 41, 136);
+}
+
+
+/* style menu principal step3*/
+.name-animal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 30px;
+    border-radius: 14px;
+    background-color: #9ca3af;
+
+}
+
+
+.main-content .button-sound,
+.main-content .button-move{
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    background-color: var(--right-color);
+    color: var(--text-color-secondary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.main-content .button-start-over {
+    width: 100%;
+    padding: 10px 20px;
+    background-color: var(--danger-color);
+    color: var(--text-color-secondary);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.main-content .button-start-over:hover {
+    background-color: rgb(55, 41, 136);
+}
