@@ -87,6 +87,9 @@ body{
 
 }
 
+.step.active {
+    background-color: #3f965f; 
+}
 
 .sidebar .image-animal{
     width: 80%;
@@ -94,10 +97,6 @@ body{
     background-color: aliceblue;
     border-radius: 10px;
 }
-
-
-
-
 
 /* menu principal */
 .content .main-content{
