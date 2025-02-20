@@ -106,8 +106,7 @@ body{
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    background-color: var(--secondary-color); /* Define a cor de fundo */
-
+    background-color: var(--secondary-color); 
 }
 
 /* style menu principal step1 */

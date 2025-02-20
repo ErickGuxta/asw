@@ -116,8 +116,11 @@ function atualizarSteps(stepAtivo) {
 
 // navegação steps
 function irParaStep2() {
-
     tipoAnimalSelecionado = document.getElementById('animalType').value;
+
+    // Atualiza a imagem do animal no sidebar
+    const sidebarAnimalImage = document.getElementById('sidebarAnimalImage');
+    sidebarAnimalImage.src = `img/${tipoAnimalSelecionado}.png`;
 
     const step1 = document.querySelector('.step1');
     step1.innerHTML = `
@@ -213,7 +216,7 @@ function irParaStep3() {
 function fazerSomAnimal() {
     if (animalAtual) {
         const audio = new Audio(animalAtual.getSom());
-        audio.play(); // Toca o som do animal
+        audio.play(); 
     }
 }
 
